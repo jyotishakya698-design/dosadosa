@@ -2691,7 +2691,7 @@ button {
   object-fit: cover;
 }
 .ul-testimonial-reviewer-slider .swiper-slide {
-  background: url(../img/testimonial-reviewer-img-bg.png) no-repeat center center;
+  /* background: url(../img/testimonial-reviewer-img-bg.png) no-repeat center center; */
   background-size: contain;
   position: relative;
   z-index: 1;

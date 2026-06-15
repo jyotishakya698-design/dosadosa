@@ -398,7 +398,7 @@ button {
 }
 
 .ul-breadcrumb {
-  background: url(../img/breadcrumb-bg.jpg) no-repeat center center;
+  background: url(../images/breadcrumb.webp) no-repeat center center;
   background-size: cover;
   padding: clamp(122px, 12.72vw, 242px) 15px clamp(42px, 7.99vw, 152px);
   padding: clamp(122px, 12.72vw, 242px) 15px clamp(42px, 6.41vw, 122px);

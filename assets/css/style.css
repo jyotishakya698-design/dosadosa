@@ -2510,7 +2510,7 @@ button {
   margin: clamp(15px, 1.58vw, 30px) 0;
 }
 .ul-booking-2-opening-time-call:hover {
-  color: var(--ul-primary);
+  color: #fff;
 }
 .ul-booking-2-vector {
   max-width: clamp(73px, 4.36vw, 83px);

@@ -1730,7 +1730,7 @@ button {
 }
 
 .ul-foods {
-  background: url(../img/foods-bg.jpg) no-repeat center center;
+  /* background: url(../img/foods-bg.jpg) no-repeat center center; */
   background-size: cover;
   position: relative;
   z-index: 1;

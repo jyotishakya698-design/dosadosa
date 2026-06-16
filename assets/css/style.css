@@ -440,7 +440,7 @@ button {
   color: var(--ul-secondary);
 }
 .ul-breadcrumb-nav .current-page {
-  color: var(--ul-primary);
+  color: #fff;
 }
 .ul-breadcrumb .separator {
   display: inline-flex;

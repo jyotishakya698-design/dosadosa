@@ -2340,6 +2340,7 @@ button {
 }
 .ul-specialities-img .main-img {
   max-width: clamp(302px, 31.63vw, 602px);
+  border-radius: 15px;
 }
 .ul-specialities-img .vector {
   position: absolute;
@@ -2433,7 +2434,7 @@ button {
 }
 
 .ul-booking-2 {
-  background: url(../images/breadcrumb.webp) no-repeat center top/cover;
+  background: #ffe9c8;
 }
 .ul-booking-2-wrapper {
   background-color: var(--ul-black);
@@ -2441,7 +2442,7 @@ button {
   overflow: hidden;
 }
 .ul-booking-2-form-wrapper {
-  background: var(--white) url(../img/booking-2-form-bg.svg) no-repeat center center/contain;
+  background: var(--white)  no-repeat center center/contain;
   height: 100%;
   padding: clamp(25px, 3.15vw, 60px);
 }
@@ -3297,10 +3298,11 @@ button {
   gap: clamp(15px, 0.95vw, 18px);
 }
 .ul-footer-widget-links > * {
-  display: inline-block;
+  display: flex;
   color: #d2d2d1;
   font-size: clamp(13px, 0.84vw, 16px);
   position: relative;
+      align-items: center;
 }
 .ul-footer-widget-links > *::before {
   content: "\f133";
@@ -3314,6 +3316,7 @@ button {
   -moz-osx-font-smoothing: grayscale;
   font-size: clamp(9px, 0.63vw, 12px);
   padding-right: 10px;
+  display: none;
 }
 .ul-footer-widget-links > *:hover {
   color: #fff;
@@ -5170,23 +5173,23 @@ button {
   border: 1px solid rgba(255, 0, 0, 0.1);
   padding: clamp(15px, 1.58vw, 30px);
   border-radius: 16px;
-  text-align: center;
   height: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
 .ul-contact-info .icon {
   border: 1px solid rgba(255, 0, 0, 0.1);
-  border-radius: 8px;
-  width: clamp(55px, 3.68vw, 70px);
-  aspect-ratio: 1/1;
-  margin: auto;
-  padding: 5px;
-  color: var(--ttRed);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: clamp(25px, 1.84vw, 35px);
-  margin-bottom: clamp(10px, 0.84vw, 16px);
-  background-color: rgba(235, 0, 41, 0.05);
+    border-radius: 8px;
+    width: clamp(55px, 3.68vw, 70px);
+    aspect-ratio: 1 / 1;
+    padding: 5px;
+    color: var(--ttRed);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(25px, 1.84vw, 35px);
+    background-color: rgba(235, 0, 41, 0.05);
 }
 .ul-contact-info .title {
   font-weight: 700;
@@ -5202,7 +5205,8 @@ button {
 .ul-contact-info .descr {
   margin-bottom: 0;
   color: var(--ul-gray);
-  font-size: clamp(13px, 0.84vw, 16px);
+  font-size: clamp(14px, 0.84vw, 16px);
+  padding-left: 15px;
 }
 
 .ul-inner-contact-form-section {

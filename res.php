@@ -2,44 +2,74 @@
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $name      = htmlspecialchars($_POST['name']);
-    $email     = htmlspecialchars($_POST['email']);
-    $date_time = htmlspecialchars($_POST['date_time']);
-    $guest     = htmlspecialchars($_POST['guest']);
-    $message   = htmlspecialchars($_POST['message']);
+    // Sanitize inputs
+    $name    = htmlspecialchars(trim($_POST['name'] ?? ''));
+    $mobile  = preg_replace('/\D/', '', $_POST['mobile'] ?? '');
+    $date    = htmlspecialchars(trim($_POST['date'] ?? ''));
+    $guests  = htmlspecialchars(trim($_POST['guests'] ?? ''));
+    $message = htmlspecialchars(trim($_POST['message'] ?? ''));
 
-    $to = "website@hospitalityminds.com"; // Replace with your email
+    // Required field validation
+    if (empty($name) || empty($mobile) || empty($date) || empty($guests)) {
+        echo "<script>
+                alert('Please fill in all required fields.');
+                window.history.back();
+              </script>";
+        exit;
+    }
 
+    // Validate mobile number (exactly 10 digits)
+    if (!preg_match('/^[0-9]{10}$/', $mobile)) {
+        echo "<script>
+                alert('Please enter a valid 10-digit mobile number.');
+                window.history.back();
+              </script>";
+        exit;
+    }
+
+    // Convert date from YYYY-MM-DD to DD/MM/YYYY
+    $formatted_date = date("d/m/Y", strtotime($date));
+
+    // Recipient
+    $to = "website@hospitalityminds.com";
+
+    // Subject
     $subject = "New Reservation Request";
 
+    // Email body
     $email_message = "
-    New Reservation Received
+New Reservation Received
 
-    Name: $name
-    Email: $email
-    Date & Time: $date_time
-    Guests: $guest
+Name: $name
+Mobile Number: $mobile
+Reservation Date: $formatted_date
+Number of Guests: $guests
 
-    Message:
-    $message
-    ";
+Message:
+$message
+";
 
-    $headers = "From: $email\r\n";
-    $headers .= "Reply-To: $email\r\n";
+    // Email headers
+    $headers = "From: website@hospitalityminds.com\r\n";
+    $headers .= "Reply-To: website@hospitalityminds.com\r\n";
+    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
-    if(mail($to, $subject, $email_message, $headers)){
-        echo "
-        <script>
-            alert('Reservation submitted successfully!');
-            window.location.href='index.html';
-        </script>";
+    // Send email
+    if (mail($to, $subject, $email_message, $headers)) {
+        echo "<script>
+                alert('Reservation submitted successfully!');
+                window.location.href='index.html';
+              </script>";
     } else {
-        echo "
-        <script>
-            alert('Failed to send reservation.');
-            window.history.back();
-        </script>";
+        echo "<script>
+                alert('Failed to send reservation. Please try again.');
+                window.history.back();
+              </script>";
     }
+
+} else {
+    header("Location: index.html");
+    exit;
 }
 
 ?>
